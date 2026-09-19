@@ -35,10 +35,12 @@ class linearregg:
         self.predicted_value=self.b0 + self.b1 * value
         return  self.predicted_value
 
-    def MSE(self, predicted):
-        predicted = np.array(predicted, dtype=float)
-        mse_value= ((self.y - predicted) ** 2).mean()
-        return mse_value 
+    def MSE(self):
+        diff =self.y - self.predict(self.x)
+        sq=diff**2
+        mse = sq.mean()
+        
+        return mse
 
     def drawRegression(self):
         plt.scatter(self.x,self.y)

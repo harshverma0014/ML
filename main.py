@@ -9,36 +9,14 @@ model=linearregg(amount,tip)
 model.cc()
 
 model.fit()
+print(model.b1,model.b0)
 
-predicted_value=model.predict([34,108,64,88,99,51])
+input=[10,20,30]
+predicted_value=model.predict(input)
 print("pridicted value ",predicted_value)
 
-mse_value=model.MSE(predicted_value)
-print("mse value ",mse_value)
+mse=model.MSE()
+print("mse value ",mse)
 
 model.drawRegression()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# model.cc()
-
-# model.fit()
-# print(model.b0,model.b1)
-# # test=[70,2000]
-# # # p=model.predict(test)
-# # p2=model.predict(amount)
-
-
-# # k=model.MSE(p2)
-# # print(k)
