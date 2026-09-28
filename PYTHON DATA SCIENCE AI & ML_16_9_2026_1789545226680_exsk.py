@@ -7,9 +7,10 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 
 
-file_path = "F:/data/mumbai.csv"
+# file_path = "F:/data/mumbai.csv"
 
-df = pd.read_csv(file_path)
+df =  pd.read_csv("D:/pythonnnnn/machinelearning/housingdata.csv")
+
 
 
 
@@ -55,6 +56,7 @@ required_columns = (
     + categorical_columns
     + [target_column]
 )
+print(required_columns)
 
 df = df.dropna(subset=required_columns)
 
