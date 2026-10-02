@@ -34,7 +34,7 @@ class LinearRegressionMV:
         values=mydata.values()
         s=self.intercept
         for i,v in enumerate(values):
-            s=self.slope[i]*v
+            s+=self.slope[i]*v
         print(s)
 
 
