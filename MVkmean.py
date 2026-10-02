@@ -7,9 +7,10 @@ class kmean:
         self.clusters = None
 
     def fit(self, data):
-        self.centroid = [4, 11]
-
         
+
+        data=np.array(data,dtype='float')
+        self.centroid = data[:self.k]
         for i in range(100):
             
             clusters = [[] for i in range(self.k)]
@@ -18,7 +19,7 @@ class kmean:
                 distance = []
 
                 for c in self.centroid:
-                    dis = abs(v - c)
+                    dis = np.sqrt(np.sum((v-c)**2))
                     distance.append(dis)
 
                 cluster_index = distance.index(min(distance))
@@ -37,7 +38,7 @@ class kmean:
             print(nc)
             if(nc==self.clusters):
                 break
-            self.clusters=nc
+            self.centroid=nc
         self.clusters=clusters
 
     def show(self):
@@ -49,7 +50,7 @@ class kmean:
     def predict(self,value):
         distance=[]
         for centroid in self.centroid:
-            dis=abs(value-centroid)
+            dis = np.sqrt(np.sum((value-centroid)**2))
             distance.append(dis)
 
         return distance.index(min(distance))
@@ -65,11 +66,11 @@ class kmean:
 
 model = kmean(2)
 
-data = [2, 4, 10, 12, 3, 20, 30, 11, 25]
+data = [[2, 4], [10, 12], [3, 20], [30, 11], [25,10],[5,9],[13,21],[25,31],[15,18]]
 
 model.fit(data)
-value=30
+value=[30,10]
 p=model.predict(value)
 model.show()
 print(value , 'belongs to clusters ',model.clusters[p])
-model.showplot()
+# model.showplot()
