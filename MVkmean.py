@@ -19,14 +19,14 @@ class kmean:
                 distance = []
 
                 for c in self.centroid:
-                    dis = np.sqrt(np.sum((v-c)**2))
+                    dis=np.sqrt(np.sum(v-c)**2)
                     distance.append(dis)
 
                 cluster_index = distance.index(min(distance))
 
                 clusters[cluster_index].append(v)
 
-            print(clusters)
+            # print(clusters)
 
             nc=[]
             for cluster in clusters:
@@ -35,7 +35,7 @@ class kmean:
                 else:
                     nc.append(0) 
 
-            print(nc)
+            # print(nc)
             if(nc==self.clusters):
                 break
             self.centroid=nc
@@ -49,8 +49,9 @@ class kmean:
 
     def predict(self,value):
         distance=[]
+        value=np.array(value,dtype='float')
         for centroid in self.centroid:
-            dis = np.sqrt(np.sum((value-centroid)**2))
+            dis = np.sqrt(np.sum(value-centroid)**2)
             distance.append(dis)
 
         return distance.index(min(distance))
@@ -58,15 +59,15 @@ class kmean:
     def showplot(self):
         color=['r','b']
         for i in range(self.k):
-            plt.scatter(self.clusters[i],[i+1]*len(self.clusters[i]),c='r')
-        plt.scatter(self.centroid,[range(1,self.k+1)],c='g',s=50,marker='*')
-        plt.yticks([1,2])
+            plt.scatter(self.clusters[i],[i+1]*len(self.clusters[i]),c=color[i])
+        plt.scatter(self.centroid,range(1,self.k+1),c='g',s=50,marker='*')
+        plt.yticks(range(1,self.k+1))
         plt.show()
 
 
 model = kmean(2)
 
-data = [[2, 4], [10, 12], [3, 20], [30, 11], [25,10],[5,9],[13,21],[25,31],[15,18]]
+data=[[2,4],[10,12],[3,20],[30,11],[25,10],[2,4],[5,9],[13,21],[25,31],[15,18]]        
 
 model.fit(data)
 value=[30,10]

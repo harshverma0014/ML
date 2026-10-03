@@ -25,7 +25,7 @@ class kmean:
 
                 clusters[cluster_index].append(v)
 
-            print(clusters)
+            # print(clusters)
 
             nc=[]
             for cluster in clusters:
@@ -34,10 +34,10 @@ class kmean:
                 else:
                     nc.append(0) 
 
-            print(nc)
+            # print(nc)
             if(nc==self.clusters):
                 break
-            self.clusters=nc
+            self.centroid=nc
         self.clusters=clusters
 
     def show(self):
@@ -57,15 +57,15 @@ class kmean:
     def showplot(self):
         color=['r','b']
         for i in range(self.k):
-            plt.scatter(self.clusters[i],[i+1]*len(self.clusters[i]),c='r')
+            plt.scatter(self.clusters[i],[i+1]*len(self.clusters[i]),c=color[i])
         plt.scatter(self.centroid,[range(1,self.k+1)],c='g',s=50,marker='*')
-        plt.yticks([1,2])
+        plt.yticks(range(1,self.k+1))
         plt.show()
 
 
 model = kmean(2)
 
-data = [2, 4, 10, 12, 3, 20, 30, 11, 25]
+data=[2,4,10,12,3,20,30,11,25] 
 
 model.fit(data)
 value=30
