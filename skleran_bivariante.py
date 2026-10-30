@@ -20,12 +20,14 @@ print(model.coef_)
 print("-------------")
 
 
-k=model.predict([[200],[300]])
-print(k)
-print("-------------")
+# k=model.predict([[200],[300],[400]])
+# print(k)
+# print("-------------")
 
 
 y_pred=model.predict(amount)
 print(y_pred)
 print("-------------")
 
+m=mean_squared_error(tip,y_pred)
+print(m)

@@ -6,8 +6,8 @@ tip=[5,17,11,8,14,5]
 model=linearregg(amount,tip)
 
 
-model.cc()
-
+c_of_c=model.cc()
+# print(c_of_c)
 model.fit()
 print(model.b1,model.b0)
 

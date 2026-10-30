@@ -42,7 +42,8 @@ class Kmean:
        distance=[]    
        value=np.array(value,float)
        for centroid in self.centroid:
-           dis=np.sqrt(np.sum(value-centroid)**2)
+           dis = np.sqrt(np.sum((value - centroid) ** 2))
+           print("dis",dis)
            distance.append(dis)
        return  distance.index(min(distance))   
     def showPlot(self):

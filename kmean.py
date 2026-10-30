@@ -9,9 +9,10 @@ class kmean:
     def fit(self, data):
         self.centroid = [4, 11]
 
-        
         for i in range(100):
-            
+
+            old_centroid = self.centroid.copy()
+
             clusters = [[] for i in range(self.k)]
 
             for v in data:
@@ -25,20 +26,20 @@ class kmean:
 
                 clusters[cluster_index].append(v)
 
-            # print(clusters)
-
-            nc=[]
-            for cluster in clusters:
-                if (len(cluster)>0):
-                    nc.append(sum(cluster)/len(cluster))
+            nc = []
+            print("cluster",clusters)
+            for j, cluster in enumerate(clusters):
+                if len(cluster) > 0:
+                    nc.append(sum(cluster) / len(cluster))
                 else:
-                    nc.append(0) 
+                    nc.append(old_centroid[j])
 
-            # print(nc)
-            if(nc==self.clusters):
+            self.centroid = nc
+
+            if nc == old_centroid:
                 break
-            self.centroid=nc
-        self.clusters=clusters
+
+        self.clusters = clusters
 
     def show(self):
         print('cluster:')
