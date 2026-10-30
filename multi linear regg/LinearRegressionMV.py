@@ -40,7 +40,7 @@ class LinearRegressionMV:
 
 
 model=LinearRegressionMV()
-model.loadfile("D:/pythonnnnn/machinelearning/housingdata.csv")
+model.loadfile("D:/pythonnnnn/machinelearning/multi linear regg/housingdata.csv")
 
 column=['locality','city','property_type','furnished']
 numerical_columns = ["area","bedroom_num","bathroom_num","balcony_num","age","total_floors"]

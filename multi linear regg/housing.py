@@ -17,7 +17,7 @@ def test_train_splits(data_x, data_y):
 
 column=['locality','city','property_type','furnished']
 
-data = pd.read_csv("D:/pythonnnnn/machinelearning/housingdata.csv")
+data = pd.read_csv("D:/pythonnnnn/machinelearning/multi linear regg/housingdata.csv")
 
 data_y = data['price']
 
