@@ -15,7 +15,7 @@ class NB:
         self.X=x
         self.Y=y
         self.classes=list(set(y))
-        print(self.classes)
+        # print(self.classes)
         self.data={}
         for c in self.classes:
         #     l=[]
