@@ -77,6 +77,7 @@ result = Label_Encoder.inverse_transform(prediction)
 # prob = 
 print(result[0])
 
+
 # plt.figure(figsize=(16,8))
 plot_tree(
     model,
